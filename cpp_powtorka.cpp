@@ -7,6 +7,12 @@ wielowierszowy
 
 #include <iostream>
 using namespace std;
+
+void fun1(int); //prototyp funkcji
+int fun2(int);
+float fun2(float);
+long fun2(long a = 2);//parametr domyslny
+
 int main()
 {
 	//std::cout << "fhdksh"; //bez przestrzeni nazw
@@ -72,5 +78,46 @@ int main()
 		else continue;
 		cout << endl;
 	}
+	//FUNKCJE
+	fun1(3); //wartosc 3 to parametr aktualny
+	y=fun2(3);
+	long d;
+	d = fun2();
 }
 
+//FUNKCJE
+//typ_zwracany nazwa_funkcji(lista_parametrow_formalnych){ciało funkcji}
+void fun1(int a) {
+	cout << a << endl;
+}
+int fun2(int a) {
+	return a + a;
+}
+/*
+przeciążenie funkcji -> teraz jest błąd bo nie można przeciążać funkcji różniącej się
+tylko typem zwracanym!!
+*/
+/*
+float fun2(int a) {
+	return float(a + a);//rzutowanie typu -> int na float
+}
+*/
+float fun2(float a) {
+	return a + a;
+}
+/*funkcja z parametrem domyślnym - parametry domyślne muszą byc na końcu listy formalnej!
+parametr domyślny umieszczamy w prototypie, chyba, że definicja funkcji znajduje się 
+przed funkcją main
+*/
+long fun2(long a) {
+	return a + a;
+}
+
+/*
+1. Napisz program, który wczyta od użytkownika 3 liczby i poda, która jest najmniejsza.
+2. Napisz program, który wczyta od użytkownika 3 liczby i poda, która jest największa - 
+   należy zbudować funkcję, która zrealizuje to zadanie
+3. Napisz program z funkcją, która policzy sumę cyfr podanej przez użytkownika liczby. Liczba
+   ma być przekazana do funkcji jako parametr. Jeśli użytkownik poda cyfrę 0 to funkcja
+   ma zareagować w taki sposób, że ma policzyć sumę dla testowej liczby 123
+*/
